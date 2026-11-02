@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:SearchTerminal}",
+      "name": "Debug SearchTerminal",
+      "target": "SearchTerminal",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug SearchTerminal"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:SearchTerminal}",
+      "name": "Release SearchTerminal",
+      "target": "SearchTerminal",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release SearchTerminal"
+    }
+  ]
+}
