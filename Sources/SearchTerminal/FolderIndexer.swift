@@ -26,7 +26,16 @@ public class FolderIndexer: ObservableObject {
         startIndexing()
     }
     
+    private var lastIndexStart: Date = .distantPast
+    
+    /// Re-scan when the index is older than `maxAge` seconds, so new folders/files show up without restarting the app.
+    public func refreshIfStale(maxAge: TimeInterval = 20) {
+        guard !isIndexing, Date().timeIntervalSince(lastIndexStart) > maxAge else { return }
+        startIndexing()
+    }
+    
     public func startIndexing() {
+        lastIndexStart = Date()
         let paths = SettingsStore.shared.allowedPaths
         let includeFiles = true
         let maxDepth = SettingsStore.shared.maxDepth

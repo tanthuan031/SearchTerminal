@@ -120,6 +120,7 @@ public class SpotlightPanelController {
     public func show() {
         guard let panel = panel else { return }
         
+        FolderIndexer.shared.refreshIfStale()
         SearchViewModel.shared.searchText = ""
         SearchViewModel.shared.performSearch(query: "")
         
